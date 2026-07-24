@@ -44,15 +44,17 @@ const Hero = () => {
 
     setLoading(true);
 
-    const projectId = crypto.randomUUID();
+    const projectid = crypto.randomUUID();
     const result = await axios.post('/api/project', {
-      projectId : projectId,
+      projectId : projectid,
       userInput : userInput,
       device : device
     });
 
     console.log(result?.data);
     setLoading(false);
+
+    router.push('/project/'+projectid)
   }
   return (
     <div className='p-10 md:px-24 lg:px-48 xl:px-60 mt-20'>
